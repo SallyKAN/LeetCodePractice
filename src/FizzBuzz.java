@@ -4,7 +4,7 @@ import java.util.List;
 public class FizzBuzz {
     public List<String> fizzBuzz(int n) {
         List<String> builder = new ArrayList<String>();
-        for (int i = ; i<=n;i++){
+        for (int i =0; i<=n;i++){
             if(1%15 == 0)
                 builder.add("FizzBuzz");
             else if (i%5 == 0)
