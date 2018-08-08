@@ -1,27 +1,24 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class MorseCodeWords {
     public int uniqueMorseRepresentations(String[] words) {
         String[] morsecode = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
         String[] letters = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
         List<String> wordList = Arrays.asList(letters);
-        ArrayList<String> morselist = new ArrayList<String>();
+        HashSet<String> morselist = new HashSet<String>();
         for(String word:words){
             String[] wordlestters = word.split("(?!^)");
-            ArrayList<String> morseword = new ArrayList<String>();
+            StringBuilder morseword = new StringBuilder();
             for (String letter: wordlestters){
                 int index = wordList.indexOf(letter);
-                morseword.add(morsecode[index]);
+                morseword.append(morsecode[index]);
             }
-            String newMoreseword = morseword.toString().replace(",","");
+//            String newMoreseword = morseword.toString().replace(",","");
 //            System.out.println(newMoreseword.replaceAll(" ",""));
-            morselist.add(newMoreseword.replaceAll(" ",""));
+            morselist.add(morseword.toString());
         }
-        long total = morselist.stream().distinct().count();
-        return (int)total;
+
+        return morselist.size();
     }
     public static void main(String[] arg){
         MorseCodeWords morseCodeWords = new MorseCodeWords();
