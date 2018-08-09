@@ -1,23 +1,30 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class ArrayPartitionI {
     public int arrayPairSum(int[] nums) {
-        int max = 0;
-        Integer[] min = new Integer[2];
-        for (int i=0;i<nums.length;i++){
-            min[0] = nums[i];
-            for (int j =0; j<nums.length;j++){
-                if(i == j) continue;
-                min[1] = nums[j];
-                int minum = Collections.min(Arrays.asList(min));
-            }
+//        int N = nums.length;
+        int sum = 0;
+//        for (int i=0; i<N; i++){
+//            int min = i;
+//            for (int j = i+1; j<N;j++){
+//                if (nums[j] < nums[min])
+//                    min = j;
+//            }
+//            int tmp = nums[i];
+//            nums[i] = nums[min];
+//            nums[min] = tmp;
+//        }
+        Arrays.sort(nums);
+        for(int i = 0 ; i < nums.length-1; i= i+2){
+            sum+= nums[i];
         }
-        return max;
+        return sum;
     }
-    static void combinationUtil(int[] nums){
+    public static void main(String[] args){
+        ArrayPartitionI ap = new ArrayPartitionI();
+        int[] ex = new int[]{7,3,1,0,0,6};
+        System.out.print(ap.arrayPairSum(ex));
+    }
 
-    }
 
 }
