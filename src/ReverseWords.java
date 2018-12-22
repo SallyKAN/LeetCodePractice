@@ -20,7 +20,7 @@ public class ReverseWords {
         return s;
     }
     public static void main(String[] args){
-        String result = reverseWords("");
+        String result = reverseWords("How,are you");
         System.out.println(result);
     }
 }
